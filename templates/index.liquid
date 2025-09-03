@@ -2,11 +2,200 @@
   Professional Orthodontic Supplies Homepage
 {% endcomment %}
 
-{% section 'simple-demo' %}
+<style>
+  /* Ensure professional styling loads immediately */
+  :root {
+    --medical-blue: #1c7ed6;
+    --medical-teal: #20c997;
+    --medical-white: #ffffff;
+    --medical-gray: #6c757d;
+  }
+</style>
 
-{% section 'hero-professional' %}
-{% section 'product-categories' %}
-{% section 'trust-indicators' %}
-{% section 'about-professional' %}
+<!-- Professional Hero Section -->
+<section class="hero-professional" style="background: linear-gradient(135deg, #1c7ed6 0%, #20c997 100%); color: white; padding: 80px 20px; text-align: center;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h1 style="font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2;">
+      Professional Orthodontic Excellence
+    </h1>
+    <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+      Trusted by 10,000+ orthodontists worldwide for superior quality supplies and expert support
+    </p>
+    
+    <!-- Statistics -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin: 3rem 0;">
+      <div style="text-align: center;">
+        <div style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem;">15+</div>
+        <div style="font-size: 0.9rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Years Experience</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem;">10,000+</div>
+        <div style="font-size: 0.9rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Satisfied Practitioners</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem;">500+</div>
+        <div style="font-size: 0.9rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Products Available</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem;">99.8%</div>
+        <div style="font-size: 0.9rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Customer Satisfaction</div>
+      </div>
+    </div>
+    
+    <!-- CTA Buttons -->
+    <div style="margin-top: 3rem;">
+      <a href="{{ routes.all_products_collection_url | default: '/collections/all' }}" 
+         style="display: inline-block; padding: 16px 32px; background: white; color: #1c7ed6; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 0 10px; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        Shop Products
+      </a>
+      <a href="{{ routes.contact_url | default: '/pages/contact' }}" 
+         style="display: inline-block; padding: 16px 32px; background: transparent; color: white; text-decoration: none; border: 2px solid white; border-radius: 8px; font-weight: 600; margin: 0 10px; transition: all 0.3s ease;">
+        Learn More
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Product Categories Section -->
+<section style="padding: 80px 20px; background: #f8f9fa;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 4rem;">
+      <h2 style="font-size: 2.5rem; font-weight: 700; color: #1c7ed6; margin-bottom: 1rem;">
+        Professional Orthodontic Categories
+      </h2>
+      <p style="font-size: 1.125rem; color: #6c757d; max-width: 600px; margin: 0 auto;">
+        Comprehensive range of professional-grade orthodontic supplies for modern dental practices
+      </p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      
+      <!-- Brackets & Wires -->
+      <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); text-align: center; transition: all 0.3s ease; cursor: pointer;"
+           onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(28, 126, 214, 0.15)';"
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)';">
+        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1c7ed6, #20c997); border-radius: 16px; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+          🦷
+        </div>
+        <h3 style="font-size: 1.25rem; font-weight: 600; color: #1c7ed6; margin-bottom: 1rem;">Brackets & Wires</h3>
+        <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">High-quality metal and ceramic brackets with precision wires for effective orthodontic treatment.</p>
+        <span style="color: #20c997; font-weight: 600; font-size: 0.9rem;">200+ Products Available</span>
+      </div>
+
+      <!-- Orthodontic Tools -->
+      <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); text-align: center; transition: all 0.3s ease; cursor: pointer;"
+           onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(28, 126, 214, 0.15)';"
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)';">
+        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1c7ed6, #20c997); border-radius: 16px; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+          🔧
+        </div>
+        <h3 style="font-size: 1.25rem; font-weight: 600; color: #1c7ed6; margin-bottom: 1rem;">Orthodontic Tools</h3>
+        <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Precision instruments and tools designed for professional orthodontic procedures and patient care.</p>
+        <span style="color: #20c997; font-weight: 600; font-size: 0.9rem;">75+ Professional Tools</span>
+      </div>
+
+      <!-- Adhesives & Cements -->
+      <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); text-align: center; transition: all 0.3s ease; cursor: pointer;"
+           onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 24px rgba(28, 126, 214, 0.15)';"
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)';">
+        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1c7ed6, #20c997); border-radius: 16px; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+          🧪
+        </div>
+        <h3 style="font-size: 1.25rem; font-weight: 600; color: #1c7ed6; margin-bottom: 1rem;">Adhesives & Cements</h3>
+        <p style="color: #6c757d; margin-bottom: 1.5rem; line-height: 1.6;">Reliable bonding solutions and dental cements for secure orthodontic attachments.</p>
+        <span style="color: #20c997; font-weight: 600; font-size: 0.9rem;">50+ Bonding Solutions</span>
+      </div>
+
+    </div>
+    
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="{{ routes.all_products_collection_url | default: '/collections/all' }}" 
+         style="display: inline-block; padding: 16px 32px; background: linear-gradient(135deg, #1c7ed6, #20c997); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(28, 126, 214, 0.15);">
+        View All Products
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Indicators Section -->
+<section style="padding: 80px 20px; background: white;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 4rem;">
+      <h2 style="font-size: 2.5rem; font-weight: 700; color: #1c7ed6; margin-bottom: 1rem;">
+        Why Professionals Choose Us
+      </h2>
+      <p style="font-size: 1.125rem; color: #6c757d; max-width: 600px; margin: 0 auto;">
+        Building trust through quality, certification, and exceptional service
+      </p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      
+      <!-- FDA Approved -->
+      <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; text-align: center; border: 2px solid #e9ecef; transition: all 0.3s ease;"
+           onmouseover="this.style.borderColor='#1c7ed6'; this.style.backgroundColor='#f8f9ff';"
+           onmouseout="this.style.borderColor='#e9ecef'; this.style.backgroundColor='#f8f9fa';">
+        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1c7ed6, #20c997); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+          🛡️
+        </div>
+        <h3 style="font-size: 1.125rem; font-weight: 600; color: #1c7ed6; margin-bottom: 1rem;">FDA Approved</h3>
+        <p style="color: #6c757d; line-height: 1.6;">All our products meet strict FDA standards and regulations for medical device safety.</p>
+      </div>
+
+      <!-- Fast Shipping -->
+      <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; text-align: center; border: 2px solid #e9ecef; transition: all 0.3s ease;"
+           onmouseover="this.style.borderColor='#1c7ed6'; this.style.backgroundColor='#f8f9ff';"
+           onmouseout="this.style.borderColor='#e9ecef'; this.style.backgroundColor='#f8f9fa';">
+        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1c7ed6, #20c997); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+          🚚
+        </div>
+        <h3 style="font-size: 1.125rem; font-weight: 600; color: #1c7ed6; margin-bottom: 1rem;">Express Delivery</h3>
+        <p style="color: #6c757d; line-height: 1.6;">Fast and reliable shipping to ensure you have supplies when your patients need them.</p>
+      </div>
+
+      <!-- Expert Support -->
+      <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; text-align: center; border: 2px solid #e9ecef; transition: all 0.3s ease;"
+           onmouseover="this.style.borderColor='#1c7ed6'; this.style.backgroundColor='#f8f9ff';"
+           onmouseout="this.style.borderColor='#e9ecef'; this.style.backgroundColor='#f8f9fa';">
+        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1c7ed6, #20c997); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+          🎓
+        </div>
+        <h3 style="font-size: 1.125rem; font-weight: 600; color: #1c7ed6; margin-bottom: 1rem;">Expert Support</h3>
+        <p style="color: #6c757d; line-height: 1.6;">Professional consultation and technical assistance from our orthodontic specialists.</p>
+      </div>
+
+      <!-- 5-Star Reviews -->
+      <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; text-align: center; border: 2px solid #e9ecef; transition: all 0.3s ease;"
+           onmouseover="this.style.borderColor='#1c7ed6'; this.style.backgroundColor='#f8f9ff';"
+           onmouseout="this.style.borderColor='#e9ecef'; this.style.backgroundColor='#f8f9fa';">
+        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1c7ed6, #20c997); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+          ⭐
+        </div>
+        <h3 style="font-size: 1.125rem; font-weight: 600; color: #1c7ed6; margin-bottom: 1rem;">5-Star Reviews</h3>
+        <p style="color: #6c757d; line-height: 1.6;">Trusted by thousands of orthodontists with consistently excellent reviews and ratings.</p>
+      </div>
+
+    </div>
+    
+    <!-- Certifications -->
+    <div style="margin-top: 4rem; padding: 2rem; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 12px; text-align: center;">
+      <h3 style="color: #1c7ed6; margin-bottom: 2rem; font-size: 1.25rem; font-weight: 600;">Professional Certifications</h3>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; color: #6c757d; font-weight: 500;">
+          <span style="color: #20c997;">✓</span> FDA Approved
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; color: #6c757d; font-weight: 500;">
+          <span style="color: #20c997;">✓</span> ISO 13485 Certified
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; color: #6c757d; font-weight: 500;">
+          <span style="color: #20c997;">✓</span> CE Marked
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; color: #6c757d; font-weight: 500;">
+          <span style="color: #20c997;">✓</span> GMP Compliant
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {{ content_for_index }}

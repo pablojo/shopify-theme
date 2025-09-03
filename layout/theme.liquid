@@ -216,8 +216,98 @@
     {% endstyle %}
 
     {{ 'main.css' | asset_url | stylesheet_tag }}
-    {{ 'section-header-professional.css' | asset_url | stylesheet_tag }}
-    {{ 'section-footer-professional.css' | asset_url | stylesheet_tag }}
+    
+    <style>
+      /* Professional Medical Color System Override */
+      :root {
+        --medical-blue: #1c7ed6;
+        --medical-teal: #20c997;
+        --medical-white: #ffffff;
+        --medical-gray: #6c757d;
+        --medical-light-blue: #e3f2fd;
+        --medical-dark-blue: #1565c0;
+        --medical-success: #28a745;
+        --gradient-primary: linear-gradient(135deg, #1c7ed6 0%, #20c997 100%);
+      }
+      
+      /* Professional Header Styling */
+      .header-wrapper {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-bottom: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(28, 126, 214, 0.08);
+      }
+      
+      .header-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #1c7ed6, #20c997, #1c7ed6);
+      }
+      
+      .header {
+        position: relative;
+      }
+      
+      /* Professional Navigation */
+      .header__menu-item {
+        color: #1c7ed6 !important;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      
+      .header__menu-item:hover {
+        color: #20c997 !important;
+      }
+      
+      /* Professional Footer */
+      .footer {
+        background: linear-gradient(135deg, #1c7ed6 0%, #1565c0 100%);
+        color: white;
+      }
+      
+      /* Professional Buttons */
+      .btn, .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .btn-primary, .button--primary {
+        background: linear-gradient(135deg, #1c7ed6, #20c997);
+        color: white;
+        box-shadow: 0 4px 20px rgba(28, 126, 214, 0.15);
+      }
+      
+      .btn-primary:hover, .button--primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(28, 126, 214, 0.25);
+      }
+      
+      /* Professional Cards */
+      .card, .product-card {
+        background: white;
+        border: 1px solid #e9ecef;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .card:hover, .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(28, 126, 214, 0.15);
+        border-color: #1c7ed6;
+      }
+    </style>
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
