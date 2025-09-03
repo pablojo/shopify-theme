@@ -369,6 +369,31 @@ body {
   color: var(--accent-foreground);
 }
 
+/* Professional Medical Button Variants */
+.btn-secondary-medical {
+  background-color: transparent;
+  color: var(--medical-blue);
+  border: 2px solid var(--medical-blue);
+}
+
+.btn-secondary-medical:hover {
+  background: var(--gradient-primary);
+  color: var(--primary-foreground);
+  border-color: var(--medical-blue);
+}
+
+.btn-medical-teal {
+  background-color: var(--medical-teal);
+  color: var(--primary-foreground);
+  border: 1px solid var(--medical-teal);
+}
+
+.btn-medical-teal:hover {
+  background-color: var(--medical-teal-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
 /* Professional Button Sizes */
 .btn-sm {
   height: 2.25rem;

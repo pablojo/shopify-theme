@@ -126,13 +126,13 @@
           <div class="about-professional__cta-buttons">
             {%- if section.settings.cta_primary_text != blank -%}
               <a href="{{ section.settings.cta_primary_url | default: routes.all_products_collection_url }}" 
-                 class="button button--primary button--large">
+                 class="btn btn-primary btn-lg">
                 {{ section.settings.cta_primary_text }}
               </a>
             {%- endif -%}
             {%- if section.settings.cta_secondary_text != blank -%}
               <a href="{{ section.settings.cta_secondary_url | default: routes.contact_url }}" 
-                 class="button button--secondary-medical button--large">
+                 class="btn btn-secondary btn-lg">
                 {{ section.settings.cta_secondary_text }}
               </a>
             {%- endif -%}
