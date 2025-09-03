@@ -1,0 +1,236 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{{ 'section-about-professional.css' | asset_url | stylesheet_tag }}
+
+<div class="about-professional color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    
+    {%- if section.settings.heading != blank -%}
+      <div class="about-professional__header">
+        <h2 class="about-professional__heading h1">{{ section.settings.heading }}</h2>
+        {%- if section.settings.subheading != blank -%}
+          <p class="about-professional__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="about-professional__content">
+      
+      {%- if section.settings.show_statistics -%}
+        <div class="about-professional__stats">
+          <div class="about-professional__stats-grid">
+            <div class="about-professional__stat-item">
+              <div class="about-professional__stat-number">15+</div>
+              <div class="about-professional__stat-label">Years Experience</div>
+            </div>
+            <div class="about-professional__stat-item">
+              <div class="about-professional__stat-number">10,000+</div>
+              <div class="about-professional__stat-label">Satisfied Practitioners</div>
+            </div>
+            <div class="about-professional__stat-item">
+              <div class="about-professional__stat-number">500+</div>
+              <div class="about-professional__stat-label">Products Available</div>
+            </div>
+            <div class="about-professional__stat-item">
+              <div class="about-professional__stat-number">99.8%</div>
+              <div class="about-professional__stat-label">Customer Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="about-professional__features">
+        <div class="about-professional__features-grid">
+          
+          <div class="about-professional__feature">
+            <div class="about-professional__feature-icon">
+              {% render 'icon-shield' %}
+            </div>
+            <h3 class="about-professional__feature-title">Professional Quality</h3>
+            <p class="about-professional__feature-description">
+              All our orthodontic supplies meet the highest industry standards with FDA approval and CE certification.
+            </p>
+          </div>
+
+          <div class="about-professional__feature">
+            <div class="about-professional__feature-icon">
+              {% render 'icon-dental-tools' %}
+            </div>
+            <h3 class="about-professional__feature-title">Complete Range</h3>
+            <p class="about-professional__feature-description">
+              From brackets and wires to specialized tools, we provide everything needed for modern orthodontic practice.
+            </p>
+          </div>
+
+          <div class="about-professional__feature">
+            <div class="about-professional__feature-icon">
+              {% render 'icon-support' %}
+            </div>
+            <h3 class="about-professional__feature-title">Expert Support</h3>
+            <p class="about-professional__feature-description">
+              Our team of orthodontic specialists provides technical support and guidance for optimal treatment outcomes.
+            </p>
+          </div>
+
+          <div class="about-professional__feature">
+            <div class="about-professional__feature-icon">
+              {% render 'icon-delivery' %}
+            </div>
+            <h3 class="about-professional__feature-title">Fast Delivery</h3>
+            <p class="about-professional__feature-description">
+              Quick and reliable shipping ensures you have the supplies you need when your patients need them.
+            </p>
+          </div>
+
+          <div class="about-professional__feature">
+            <div class="about-professional__feature-icon">
+              {% render 'icon-certificate' %}
+            </div>
+            <h3 class="about-professional__feature-title">Certified Products</h3>
+            <p class="about-professional__feature-description">
+              Every product comes with proper certification and documentation for clinical compliance.
+            </p>
+          </div>
+
+          <div class="about-professional__feature">
+            <div class="about-professional__feature-icon">
+              {% render 'icon-star-rating' %}
+            </div>
+            <h3 class="about-professional__feature-title">Trusted by Professionals</h3>
+            <p class="about-professional__feature-description">
+              Over 10,000 orthodontists worldwide trust our products for their daily practice needs.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      {%- if section.settings.show_cta -%}
+        <div class="about-professional__cta">
+          <h3 class="about-professional__cta-heading">Ready to Elevate Your Practice?</h3>
+          <p class="about-professional__cta-description">
+            Join thousands of orthodontists who trust our professional-grade supplies for exceptional patient care.
+          </p>
+          <div class="about-professional__cta-buttons">
+            {%- if section.settings.cta_primary_text != blank -%}
+              <a href="{{ section.settings.cta_primary_url | default: routes.all_products_collection_url }}" 
+                 class="button button--primary button--large">
+                {{ section.settings.cta_primary_text }}
+              </a>
+            {%- endif -%}
+            {%- if section.settings.cta_secondary_text != blank -%}
+              <a href="{{ section.settings.cta_secondary_url | default: routes.contact_url }}" 
+                 class="button button--secondary-medical button--large">
+                {{ section.settings.cta_secondary_text }}
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Professional",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Professional Orthodontic Excellence",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Trusted by orthodontic professionals worldwide for superior quality and reliable service",
+      "label": "Subheading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_statistics",
+      "default": true,
+      "label": "Show statistics"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "default": true,
+      "label": "Show call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_text",
+      "default": "View Products",
+      "label": "Primary button text"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_url",
+      "label": "Primary button URL"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_text",
+      "default": "Contact Us",
+      "label": "Secondary button text"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_url",
+      "label": "Secondary button URL"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Professional"
+    }
+  ]
+}
+{% endschema %}

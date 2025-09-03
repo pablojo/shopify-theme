@@ -1,0 +1,295 @@
+{{ 'section-hero-professional.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="hero-professional section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="hero-professional__container page-width">
+    <div class="hero-professional__content">
+      <div class="hero-professional__text">
+        {%- if section.settings.badge_text != blank -%}
+          <div class="hero-professional__badge">
+            <span class="trust-badge">
+              {% render 'icon-check' %}
+              {{ section.settings.badge_text }}
+            </span>
+          </div>
+        {%- endif -%}
+        
+        {%- if section.settings.heading != blank -%}
+          <h1 class="hero-professional__heading">
+            {{ section.settings.heading }}
+          </h1>
+        {%- endif -%}
+        
+        {%- if section.settings.subheading != blank -%}
+          <p class="hero-professional__subheading">
+            {{ section.settings.subheading }}
+          </p>
+        {%- endif -%}
+        
+        <div class="hero-professional__stats">
+          {%- if section.settings.stat_1_number != blank -%}
+            <div class="hero-stat">
+              <div class="hero-stat__number">{{ section.settings.stat_1_number }}</div>
+              <div class="hero-stat__label">{{ section.settings.stat_1_label }}</div>
+            </div>
+          {%- endif -%}
+          
+          {%- if section.settings.stat_2_number != blank -%}
+            <div class="hero-stat">
+              <div class="hero-stat__number">{{ section.settings.stat_2_number }}</div>
+              <div class="hero-stat__label">{{ section.settings.stat_2_label }}</div>
+            </div>
+          {%- endif -%}
+          
+          {%- if section.settings.stat_3_number != blank -%}
+            <div class="hero-stat">
+              <div class="hero-stat__number">{{ section.settings.stat_3_number }}</div>
+              <div class="hero-stat__label">{{ section.settings.stat_3_label }}</div>
+            </div>
+          {%- endif -%}
+        </div>
+        
+        <div class="hero-professional__actions">
+          {%- if section.settings.button_primary_text != blank -%}
+            <a href="{{ section.settings.button_primary_link | default: '#' }}" class="btn btn-primary btn-lg">
+              {{ section.settings.button_primary_text }}
+              {% render 'icon-arrow' %}
+            </a>
+          {%- endif -%}
+          
+          {%- if section.settings.button_secondary_text != blank -%}
+            <a href="{{ section.settings.button_secondary_link | default: '#' }}" class="btn btn-outline btn-lg">
+              {{ section.settings.button_secondary_text }}
+            </a>
+          {%- endif -%}
+        </div>
+        
+        {%- if section.settings.trust_text != blank -%}
+          <div class="hero-professional__trust">
+            <div class="trust-indicators">
+              <div class="trust-indicator">
+                {% render 'icon-shield' %}
+                <span>{{ section.settings.trust_text }}</span>
+              </div>
+              {%- if section.settings.certification_text != blank -%}
+                <div class="trust-indicator">
+                  {% render 'icon-certificate' %}
+                  <span>{{ section.settings.certification_text }}</span>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+      
+      <div class="hero-professional__media">
+        {%- if section.settings.image != blank -%}
+          <div class="hero-professional__image">
+            {{
+              section.settings.image
+              | image_url: width: 800
+              | image_tag:
+                loading: 'eager',
+                widths: '400, 600, 800, 1000, 1200',
+                sizes: '(min-width: 1200px) 600px, (min-width: 750px) 50vw, 100vw',
+                alt: section.settings.image.alt | escape
+            }}
+          </div>
+        {%- else -%}
+          <div class="hero-professional__placeholder">
+            {{ 'medical-equipment' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+        
+        {%- if section.settings.show_floating_cards -%}
+          <div class="hero-floating-cards">
+            <div class="floating-card floating-card--1">
+              <div class="floating-card__icon">{% render 'icon-check' %}</div>
+              <div class="floating-card__text">FDA Approved</div>
+            </div>
+            <div class="floating-card floating-card--2">
+              <div class="floating-card__icon">{% render 'icon-star' %}</div>
+              <div class="floating-card__text">ISO Certified</div>
+            </div>
+            <div class="floating-card floating-card--3">
+              <div class="floating-card__icon">{% render 'icon-globe' %}</div>
+              <div class="floating-card__text">Worldwide Shipping</div>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Professional Hero",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Trust badge text",
+      "default": "Trusted by 10,000+ Orthodontists"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Professional Orthodontic Supplies for Exceptional Results"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover our comprehensive range of premium orthodontic supplies, designed for precision and reliability. Trusted by professionals worldwide for over 25 years."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_floating_cards",
+      "label": "Show floating trust cards",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Statistics"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Statistic 1 number",
+      "default": "10,000+"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Statistic 1 label",
+      "default": "Satisfied Practitioners"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Statistic 2 number",
+      "default": "25+"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Statistic 2 label",
+      "default": "Years of Excellence"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_number",
+      "label": "Statistic 3 number",
+      "default": "50+"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Statistic 3 label",
+      "default": "Countries Served"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "button_primary_text",
+      "label": "Primary button text",
+      "default": "Shop Products"
+    },
+    {
+      "type": "url",
+      "id": "button_primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_text",
+      "label": "Secondary button text",
+      "default": "Request Catalog"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Trust indicators"
+    },
+    {
+      "type": "text",
+      "id": "trust_text",
+      "label": "Trust text",
+      "default": "FDA Approved Products"
+    },
+    {
+      "type": "text",
+      "id": "certification_text",
+      "label": "Certification text",
+      "default": "ISO 13485 Certified"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Professional Hero"
+    }
+  ]
+}
+{% endschema %}

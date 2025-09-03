@@ -3,6 +3,7 @@
 {{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}
 {{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}
 {{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
+{{ 'section-header-professional.css' | asset_url | stylesheet_tag }}
 
 {%- if settings.cart_type == "drawer" -%}
   {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
@@ -102,6 +103,15 @@
     assign localization_form_id = 'HeaderCountryFormNoScript'
   endif
 -%}
+
+{% comment %} Professional Trust Strip {% endcomment %}
+{%- if section.settings.show_trust_strip -%}
+  <div class="header__trust-strip">
+    <div class="page-width">
+      {{ section.settings.trust_strip_text | default: "Secure Ordering • Professional Grade Equipment • Fast Shipping" }}
+    </div>
+  </div>
+{%- endif -%}
 
 <{% if section.settings.enable_sticky_header %}sticky-header data-sticky-type="on-scroll-up"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} header--has-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header--has-localizations{% endif %}">
@@ -819,6 +829,20 @@
       "id": "show_line_separator",
       "default": true,
       "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_strip",
+      "default": true,
+      "label": "Show trust strip",
+      "info": "Display a professional trust strip above the header"
+    },
+    {
+      "type": "text",
+      "id": "trust_strip_text",
+      "default": "Secure Ordering • Professional Grade Equipment • Fast Shipping",
+      "label": "Trust strip text",
+      "info": "Text to display in the trust strip"
     },
     {
       "type": "header",

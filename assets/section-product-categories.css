@@ -1,0 +1,249 @@
+/* Product Categories Section */
+.product-categories {
+  background-color: var(--background);
+}
+
+.product-categories__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .product-categories__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-categories__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Category Card */
+.category-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-professional);
+  position: relative;
+  height: 100%;
+}
+
+.category-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--medical-blue);
+}
+
+.category-card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Category Card Image */
+.category-card__image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--gradient-subtle);
+}
+
+.category-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-professional);
+}
+
+.category-card:hover .category-card__image img {
+  transform: scale(1.05);
+}
+
+.category-card__overlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: var(--transition-professional);
+  box-shadow: var(--shadow-card);
+}
+
+.category-card:hover .category-card__overlay {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.category-card__icon {
+  color: var(--medical-blue);
+}
+
+.category-card__icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Category Card Content */
+.category-card__content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.category-card__description {
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.category-card__count {
+  font-size: 0.875rem;
+  color: var(--medical-blue);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.category-card__count::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--medical-blue);
+  border-radius: 50%;
+}
+
+.category-card__cta {
+  margin-top: auto;
+}
+
+.category-card__cta .btn {
+  width: 100%;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: var(--transition-professional);
+}
+
+.category-card:hover .category-card__cta .btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Category Actions */
+.product-categories__actions {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Professional Animations */
+.category-card {
+  animation: professional-fade-in 0.6s ease-out;
+}
+
+.category-card:nth-child(1) { animation-delay: 0.1s; }
+.category-card:nth-child(2) { animation-delay: 0.2s; }
+.category-card:nth-child(3) { animation-delay: 0.3s; }
+.category-card:nth-child(4) { animation-delay: 0.4s; }
+.category-card:nth-child(5) { animation-delay: 0.5s; }
+.category-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive Adjustments */
+@media (max-width: 639px) {
+  .category-card__overlay {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .category-card__cta .btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus States */
+.category-card__link:focus {
+  outline: 2px solid var(--medical-blue);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+/* Hover States for Better UX */
+.category-card:hover .category-card__title {
+  color: var(--medical-blue);
+  transition: color 0.3s ease;
+}
+
+/* Professional Loading State */
+.category-card.loading {
+  pointer-events: none;
+}
+
+.category-card.loading .category-card__image {
+  background: linear-gradient(90deg, var(--muted) 25%, var(--border) 50%, var(--muted) 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+}
+
+.category-card.loading .category-card__title,
+.category-card.loading .category-card__description,
+.category-card.loading .category-card__count {
+  background: var(--muted);
+  border-radius: 0.25rem;
+  color: transparent;
+  animation: loading-shimmer 1.5s infinite;
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .category-card,
+  .category-card__image img,
+  .category-card__overlay,
+  .category-card__cta .btn {
+    animation: none;
+    transition: none;
+  }
+  
+  .category-card:hover .category-card__image img {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .category-card {
+    border: 2px solid var(--foreground);
+  }
+  
+  .category-card:hover {
+    border-color: var(--medical-blue);
+    background: var(--accent);
+  }
+}

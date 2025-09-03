@@ -1,4 +1,5 @@
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
+{{ 'section-footer-professional.css' | asset_url | stylesheet_tag }}
 {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
@@ -27,6 +28,67 @@
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  {%- if section.settings.show_trust_indicators -%}
+    <div class="footer__trust-section page-width">
+      <div class="footer__trust-grid">
+        <div class="footer__trust-item">
+          <div class="footer__trust-icon">
+            {% render 'icon-shield' %}
+          </div>
+          <h3 class="footer__trust-title">Professional Grade</h3>
+          <p class="footer__trust-description">Certified orthodontic equipment meeting industry standards</p>
+        </div>
+        <div class="footer__trust-item">
+          <div class="footer__trust-icon">
+            {% render 'icon-delivery' %}
+          </div>
+          <h3 class="footer__trust-title">Fast Shipping</h3>
+          <p class="footer__trust-description">Express delivery for urgent orthodontic needs</p>
+        </div>
+        <div class="footer__trust-item">
+          <div class="footer__trust-icon">
+            {% render 'icon-support' %}
+          </div>
+          <h3 class="footer__trust-title">Expert Support</h3>
+          <p class="footer__trust-description">Professional consultation and technical assistance</p>
+        </div>
+        <div class="footer__trust-item">
+          <div class="footer__trust-icon">
+            {% render 'icon-certificate' %}
+          </div>
+          <h3 class="footer__trust-title">Certified Quality</h3>
+          <p class="footer__trust-description">FDA approved and clinically tested products</p>
+        </div>
+      </div>
+      
+      <div class="footer__certifications">
+        <div class="footer__cert-item">
+          <div class="footer__cert-icon">
+            {% render 'icon-check' %}
+          </div>
+          FDA Approved
+        </div>
+        <div class="footer__cert-item">
+          <div class="footer__cert-icon">
+            {% render 'icon-shield' %}
+          </div>
+          ISO 13485 Certified
+        </div>
+        <div class="footer__cert-item">
+          <div class="footer__cert-icon">
+            {% render 'icon-certificate' %}
+          </div>
+          CE Marked
+        </div>
+        <div class="footer__cert-item">
+          <div class="footer__cert-icon">
+            {% render 'icon-star-rating' %}
+          </div>
+          5-Star Reviews
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
   {%- liquid
     assign has_social_icons = true
     if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_snapchat_link == blank and settings.social_pinterest_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
@@ -371,6 +433,13 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "background-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_indicators",
+      "default": true,
+      "label": "Show trust indicators",
+      "info": "Display professional trust indicators at the top of footer"
     },
     {
       "type": "header",

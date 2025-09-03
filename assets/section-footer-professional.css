@@ -1,0 +1,404 @@
+/* Professional Medical Footer Styles */
+
+.footer {
+  background: linear-gradient(135deg, var(--color-medical-blue) 0%, var(--color-medical-dark-blue) 100%);
+  color: var(--color-medical-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-medical-teal), var(--color-medical-blue), var(--color-medical-teal));
+}
+
+.footer::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(32, 201, 151, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* Trust Indicators Section */
+.footer__trust-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.footer__trust-item {
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.footer__trust-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+.footer__trust-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--color-medical-teal), var(--color-medical-blue));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__trust-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-medical-white);
+}
+
+.footer__trust-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-medical-white);
+}
+
+.footer__trust-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+/* Content Sections */
+.footer__content-top {
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-block {
+  margin-bottom: 32px;
+}
+
+.footer-block__heading {
+  color: var(--color-medical-white);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-medical-teal);
+  display: inline-block;
+}
+
+.footer-block__details-content {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.footer-block__details-content p {
+  margin-bottom: 12px;
+}
+
+/* Menu Links */
+.footer-block--menu .list-menu__item--link {
+  padding: 8px 0;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 20px;
+}
+
+.footer-block--menu .list-menu__item--link::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-medical-teal);
+  transition: all 0.3s ease;
+}
+
+.footer-block--menu .list-menu__item--link:hover {
+  color: var(--color-medical-white);
+  padding-left: 24px;
+}
+
+.footer-block--menu .list-menu__item--link:hover::before {
+  color: var(--color-medical-white);
+}
+
+/* Newsletter Section */
+.footer-block--newsletter {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 32px;
+}
+
+.footer-block--newsletter .footer-block__heading {
+  border-bottom-color: var(--color-medical-white);
+  margin-bottom: 24px;
+}
+
+.newsletter-form__field-wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.newsletter-form .field {
+  flex: 1;
+}
+
+.newsletter-form .field__input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-medical-white);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form .field__input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--color-medical-teal);
+  box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.2);
+}
+
+.newsletter-form .field__input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-form .field__label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+.newsletter-form__button {
+  background: linear-gradient(135deg, var(--color-medical-teal), var(--color-medical-blue));
+  border: none;
+  border-radius: 8px;
+  padding: 16px 20px;
+  color: var(--color-medical-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form__button:hover {
+  background: linear-gradient(135deg, var(--color-medical-blue), var(--color-medical-teal));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(32, 201, 151, 0.3);
+}
+
+/* Social Icons */
+.footer__list-social {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.footer__list-social .list-social__link {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-medical-white);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer__list-social .list-social__link:hover {
+  background: var(--color-medical-teal);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(32, 201, 151, 0.3);
+}
+
+/* Copyright Section */
+.footer__content-bottom-wrapper {
+  background: var(--color-medical-dark-blue);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 0;
+}
+
+.footer__copyright {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.copyright__content {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.copyright__content a {
+  color: var(--color-medical-teal);
+  text-decoration: none;
+}
+
+.copyright__content a:hover {
+  color: var(--color-medical-white);
+}
+
+/* Payment Icons */
+.footer__payment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.list-payment {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-payment__item {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.list-payment__item:hover {
+  opacity: 1;
+}
+
+.list-payment__item .icon {
+  width: 32px;
+  height: 20px;
+}
+
+/* Medical Certifications */
+.footer__certifications {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 32px 0;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__cert-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footer__cert-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-medical-teal);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 749px) {
+  .footer__trust-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .footer__trust-item {
+    padding: 16px;
+  }
+  
+  .footer-block--newsletter {
+    padding: 24px;
+  }
+  
+  .newsletter-form__field-wrapper {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .footer__copyright {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer__certifications {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .footer__content-top {
+    padding-bottom: 64px;
+  }
+  
+  .footer-block {
+    margin-bottom: 0;
+  }
+}
+
+/* Professional animations */
+.footer-block {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.footer-block:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.footer-block:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.footer-block:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Professional gradient borders */
+.footer::before {
+  background: linear-gradient(90deg, 
+    var(--color-medical-teal) 0%, 
+    var(--color-medical-blue) 25%, 
+    var(--color-medical-teal) 50%, 
+    var(--color-medical-blue) 75%, 
+    var(--color-medical-teal) 100%);
+}

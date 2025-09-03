@@ -1,0 +1,326 @@
+/* Trust Indicators Section */
+.trust-indicators-section {
+  background: var(--clinical-gray-light);
+}
+
+.trust-indicators__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .trust-indicators__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .trust-indicators__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Trust Statistics */
+.trust-stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-professional);
+}
+
+.trust-stat:hover {
+  box-shadow: var(--shadow-professional);
+  transform: translateY(-4px);
+}
+
+.trust-stat__icon {
+  width: 4rem;
+  height: 4rem;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+}
+
+.trust-stat__icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.trust-stat__number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--medical-blue);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.trust-stat__label {
+  color: var(--muted-foreground);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+}
+
+/* Trust Certifications */
+.trust-certification {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-professional);
+}
+
+.trust-certification:hover {
+  box-shadow: var(--shadow-professional);
+  transform: translateY(-4px);
+}
+
+.trust-certification__image {
+  margin-bottom: 1.5rem;
+}
+
+.trust-certification__image img {
+  max-width: 120px;
+  height: auto;
+  filter: grayscale(100%);
+  transition: var(--transition-professional);
+}
+
+.trust-certification:hover .trust-certification__image img {
+  filter: grayscale(0%);
+}
+
+.trust-certification__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.trust-certification__description {
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+/* Trust Features */
+.trust-feature {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-professional);
+}
+
+.trust-feature:hover {
+  box-shadow: var(--shadow-professional);
+  transform: translateY(-4px);
+}
+
+.trust-feature__icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--medical-teal-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--medical-teal);
+  flex-shrink: 0;
+}
+
+.trust-feature__icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.trust-feature__content {
+  flex: 1;
+}
+
+.trust-feature__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.trust-feature__description {
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+/* Trust Badges */
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.trust-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--clinical-gray);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-professional);
+}
+
+.trust-badge-item:hover {
+  background: var(--medical-blue-light);
+  color: var(--medical-blue);
+  border-color: var(--medical-blue);
+}
+
+.trust-badge-item svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--medical-blue);
+}
+
+/* Animation Delays */
+.trust-stat:nth-child(1),
+.trust-certification:nth-child(1),
+.trust-feature:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.trust-stat:nth-child(2),
+.trust-certification:nth-child(2),
+.trust-feature:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.trust-stat:nth-child(3),
+.trust-certification:nth-child(3),
+.trust-feature:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.trust-stat:nth-child(4),
+.trust-certification:nth-child(4),
+.trust-feature:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.trust-stat:nth-child(5),
+.trust-certification:nth-child(5),
+.trust-feature:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.trust-stat:nth-child(6),
+.trust-certification:nth-child(6),
+.trust-feature:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 639px) {
+  .trust-feature {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .trust-badges {
+    gap: 1rem;
+  }
+  
+  .trust-badge-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* Focus States */
+.trust-stat:focus,
+.trust-certification:focus,
+.trust-feature:focus {
+  outline: 2px solid var(--medical-blue);
+  outline-offset: 2px;
+}
+
+/* Professional Number Animation */
+.trust-stat__number {
+  position: relative;
+  overflow: hidden;
+}
+
+.trust-stat__number::after {
+  content: attr(data-value);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.trust-stat:hover .trust-stat__number::after {
+  opacity: 1;
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .trust-stat,
+  .trust-certification,
+  .trust-feature,
+  .trust-badge-item {
+    animation: none;
+    transition: none;
+  }
+  
+  .trust-stat:hover,
+  .trust-certification:hover,
+  .trust-feature:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .trust-stat,
+  .trust-certification,
+  .trust-feature,
+  .trust-badge-item {
+    border: 2px solid var(--foreground);
+  }
+  
+  .trust-stat__icon,
+  .trust-feature__icon {
+    background: var(--foreground);
+    color: var(--background);
+  }
+}

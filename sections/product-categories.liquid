@@ -1,0 +1,301 @@
+{{ 'section-product-categories.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="product-categories section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="section-header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="section-title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="section-subtitle">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    
+    <div class="product-categories__grid">
+      {%- for block in section.blocks -%}
+        <div class="category-card hover-lift" {{ block.shopify_attributes }}>
+          <a href="{{ block.settings.link | default: '#' }}" class="category-card__link">
+            <div class="category-card__image">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 600
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '300, 400, 500, 600',
+                    sizes: '(min-width: 1200px) 300px, (min-width: 750px) 33vw, 100vw',
+                    alt: block.settings.image.alt | escape
+                }}
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+              
+              <div class="category-card__overlay">
+                <div class="category-card__icon">
+                  {% case block.settings.icon %}
+                    {% when 'brackets' %}
+                      {% render 'icon-brackets' %}
+                    {% when 'wires' %}
+                      {% render 'icon-wires' %}
+                    {% when 'tools' %}
+                      {% render 'icon-tools' %}
+                    {% when 'adhesives' %}
+                      {% render 'icon-adhesives' %}
+                    {% when 'aligners' %}
+                      {% render 'icon-aligners' %}
+                    {% when 'accessories' %}
+                      {% render 'icon-accessories' %}
+                    {% else %}
+                      {% render 'icon-product' %}
+                  {% endcase %}
+                </div>
+              </div>
+            </div>
+            
+            <div class="category-card__content">
+              {%- if block.settings.title != blank -%}
+                <h3 class="category-card__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              
+              {%- if block.settings.description != blank -%}
+                <p class="category-card__description">{{ block.settings.description }}</p>
+              {%- endif -%}
+              
+              {%- if block.settings.product_count != blank -%}
+                <div class="category-card__count">
+                  {{ block.settings.product_count }} Products
+                </div>
+              {%- endif -%}
+              
+              <div class="category-card__cta">
+                <span class="btn btn-ghost btn-sm">
+                  Explore Category
+                  {% render 'icon-arrow' %}
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+    
+    {%- if section.settings.button_text != blank -%}
+      <div class="product-categories__actions">
+        <a href="{{ section.settings.button_link | default: '#' }}" class="btn btn-primary btn-lg">
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Categories",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Professional Orthodontic Categories"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover our comprehensive range of orthodontic supplies, carefully organized by category for easy browsing."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "View All Products"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category image"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Category icon",
+          "options": [
+            {
+              "value": "brackets",
+              "label": "Brackets"
+            },
+            {
+              "value": "wires",
+              "label": "Wires"
+            },
+            {
+              "value": "tools",
+              "label": "Tools"
+            },
+            {
+              "value": "adhesives",
+              "label": "Adhesives"
+            },
+            {
+              "value": "aligners",
+              "label": "Aligners"
+            },
+            {
+              "value": "accessories",
+              "label": "Accessories"
+            }
+          ],
+          "default": "brackets"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category title",
+          "default": "Orthodontic Brackets"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Category description",
+          "default": "Premium quality brackets for precise orthodontic treatment."
+        },
+        {
+          "type": "text",
+          "id": "product_count",
+          "label": "Product count",
+          "default": "150+"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Category link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Categories",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "Orthodontic Brackets",
+            "description": "Premium quality brackets for precise treatment.",
+            "product_count": "150+",
+            "icon": "brackets"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Archwires",
+            "description": "Professional grade wires for optimal results.",
+            "product_count": "200+",
+            "icon": "wires"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Orthodontic Tools",
+            "description": "Precision instruments for dental professionals.",
+            "product_count": "75+",
+            "icon": "tools"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Adhesives & Cements",
+            "description": "Reliable bonding solutions for orthodontics.",
+            "product_count": "50+",
+            "icon": "adhesives"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Clear Aligners",
+            "description": "Modern alignment solutions for patients.",
+            "product_count": "25+",
+            "icon": "aligners"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Accessories",
+            "description": "Essential orthodontic accessories and supplies.",
+            "product_count": "100+",
+            "icon": "accessories"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

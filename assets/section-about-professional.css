@@ -1,0 +1,384 @@
+/* About Professional Section Styles */
+
+.about-professional {
+  background: linear-gradient(135deg, var(--color-medical-white) 0%, var(--color-medical-light-blue) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-professional::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 104, 155, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.about-professional::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(32, 201, 151, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* Header */
+.about-professional__header {
+  text-align: center;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 2;
+}
+
+.about-professional__heading {
+  color: var(--color-medical-blue);
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.about-professional__subheading {
+  color: var(--color-medical-gray);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Statistics */
+.about-professional__stats {
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.about-professional__stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-professional__stat-item {
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--color-medical-white);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 104, 155, 0.08);
+  border: 1px solid var(--color-medical-blue-light);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-professional__stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-medical-blue), var(--color-medical-teal));
+}
+
+.about-professional__stat-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 104, 155, 0.15);
+}
+
+.about-professional__stat-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-medical-blue);
+  line-height: 1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--color-medical-blue), var(--color-medical-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-professional__stat-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-medical-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Features */
+.about-professional__features {
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 2;
+}
+
+.about-professional__features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.about-professional__feature {
+  background: var(--color-medical-white);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 104, 155, 0.08);
+  border: 1px solid var(--color-medical-blue-light);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-professional__feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-medical-teal), var(--color-medical-blue));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+.about-professional__feature:hover::before {
+  transform: scaleX(1);
+}
+
+.about-professional__feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 104, 155, 0.15);
+}
+
+.about-professional__feature-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--color-medical-blue), var(--color-medical-teal));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.about-professional__feature:hover .about-professional__feature-icon {
+  transform: scale(1.1);
+}
+
+.about-professional__feature-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--color-medical-white);
+  stroke-width: 2;
+}
+
+.about-professional__feature-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-medical-blue);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.about-professional__feature-description {
+  color: var(--color-medical-gray);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Call to Action */
+.about-professional__cta {
+  text-align: center;
+  padding: 48px 32px;
+  background: linear-gradient(135deg, var(--color-medical-blue), var(--color-medical-teal));
+  border-radius: 20px;
+  color: var(--color-medical-white);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.about-professional__cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+}
+
+.about-professional__cta-heading {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.about-professional__cta-description {
+  font-size: 18px;
+  margin-bottom: 32px;
+  opacity: 0.9;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.about-professional__cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 749px) {
+  .about-professional__header {
+    margin-bottom: 48px;
+  }
+  
+  .about-professional__heading {
+    font-size: 32px;
+  }
+  
+  .about-professional__subheading {
+    font-size: 16px;
+  }
+  
+  .about-professional__stats {
+    margin-bottom: 48px;
+  }
+  
+  .about-professional__stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .about-professional__stat-item {
+    padding: 24px 16px;
+  }
+  
+  .about-professional__stat-number {
+    font-size: 36px;
+  }
+  
+  .about-professional__stat-label {
+    font-size: 14px;
+  }
+  
+  .about-professional__features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .about-professional__feature {
+    padding: 24px;
+  }
+  
+  .about-professional__feature-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .about-professional__feature-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .about-professional__feature-title {
+    font-size: 18px;
+  }
+  
+  .about-professional__cta {
+    padding: 32px 24px;
+  }
+  
+  .about-professional__cta-heading {
+    font-size: 24px;
+  }
+  
+  .about-professional__cta-description {
+    font-size: 16px;
+  }
+  
+  .about-professional__cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .about-professional__stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation */
+.about-professional__stat-item,
+.about-professional__feature {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.about-professional__stat-item:nth-child(2),
+.about-professional__feature:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.about-professional__stat-item:nth-child(3),
+.about-professional__feature:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.about-professional__stat-item:nth-child(4),
+.about-professional__feature:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.about-professional__feature:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.about-professional__feature:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Professional hover effects */
+.about-professional__stat-item:hover .about-professional__stat-number {
+  animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
